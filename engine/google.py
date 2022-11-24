@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+from engine.randomizer import Randomizer
+
 def headers(header_type='base'):
 	"""Returns different headers for various endpoints"""
 	base = {
@@ -26,3 +28,20 @@ def headers(header_type='base'):
 		base["x-goog-upload-command"] = "upload, finalize"
 		base["x-goog-upload-offset"] = "0"
 		return base
+
+def uuid4like():
+	'''Generates a uuid4 like string'''
+	r = Randomizer()
+	part1 = r.keygen(r.alphanum, 8)
+	part2 = r.keygen(r.alphanum, 4)
+	part3 = "".join(
+		['4', r.keygen(r.alphanum, 2), r.keygen(r.digits, 1)])
+
+	part4 = r.keygen(r.alphanum, 4)
+	part5 = "".join([
+		r.keygen(r.alphanum, 2),
+		r.keygen(r.digits, 1),
+		r.keygen(r.alphanum, 9)
+		])
+	key = "-".join([part1, part2, part3, part4, part5])
+	return key
