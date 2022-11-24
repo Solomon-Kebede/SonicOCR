@@ -34,6 +34,11 @@ def f_sid():
 	r = Randomizer()
 	return int("".join([r.keygen('+-',1), r.keygen(r.digits[1:9], 1), r.keygen(r.digits, 18)]))
 
+def reqid():
+	'''Generate a 6 digit unsigned _reqid'''
+	r = Randomizer()
+	return int(r.keygen(r.digits[1:8], 6))
+
 def uuid4like():
 	'''Generates a uuid4 like string'''
 	r = Randomizer()
