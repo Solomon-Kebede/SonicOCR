@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 
+import base64
+from urllib.parse import quote as urlencoder
 from engine.randomizer import Randomizer
 
 def headers(header_type='base'):
@@ -55,3 +57,16 @@ def uuid4like():
 		])
 	key = "-".join([part1, part2, part3, part4, part5])
 	return key
+
+def data4batchexecute(gp_url):
+	'''
+	Prepares data to be sent to the
+	'batchexecute' endpoint
+	'''
+	r = Randomizer()
+	VALUE_X = int("".join([r.keygen(r.digits[1:9], 1), r.keygen(r.digits, 14)]))
+	key = uuid4like()
+	VALUE_Y = base64.b64encode(key.encode('utf-8')).decode('utf-8')
+	data = f"f.req=%5B%5B%5B%22B7fdke%22%2C%22%5B%5B%5C%22{VALUE_X}%5C%22%2C1%2C1%5D%2C%5Bnull%2Cnull%2Cnull%2Cnull%2C%5Bnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5C%22{urlencoder(gp_url, safe='')}%5C%22%5D%5D%2C%5Bnull%2Cnull%2Cnull%2Cnull%2C3%2C%5B%5C%22en%5C%22%2Cnull%2C%5C%22US%5C%22%2C%5C%22Africa%2FCasablanca%5C%22%5D%2Cnull%2Cnull%2C%5Bnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Ctrue%5D%2C%5B%5Bnull%2Ctrue%2Ctrue%2Ctrue%2Ctrue%2Ctrue%2Ctrue%2Cnull%2Cnull%2Cnull%2Ctrue%2Ctrue%2Ctrue%2Ctrue%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Ctrue%2Ctrue%2Cnull%2Ctrue%2Ctrue%2Cnull%2Cnull%2Cnull%2Cnull%2Cfalse%2Cfalse%2Cnull%2Cnull%2Cnull%2C%5B4%2C5%2C6%2C7%2C2%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cfalse%2Cnull%2Cfalse%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Ctrue%2Cnull%2Cfalse%2Cnull%2Cfalse%5D%5D%2C%5B%5B%5B7%5D%5D%5D%2Cnull%2Cnull%2Cnull%2C26%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5Bnull%2C5%5D%2Cnull%2C%5B5%5D%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5D%2Cnull%2Cnull%2Cnull%2C%5Bnull%2Ctrue%5D%2Cnull%2Cnull%2C%5B%5D%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C%5B%5Bnull%2C%5Bnull%5D%5D%5D%2Cnull%2C%5C%22{VALUE_Y}%5C%22%5D%22%2Cnull%2C%22generic%22%5D%5D%5D&"
+	return data
+
