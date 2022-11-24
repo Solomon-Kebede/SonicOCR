@@ -29,6 +29,11 @@ def headers(header_type='base'):
 		base["x-goog-upload-offset"] = "0"
 		return base
 
+def f_sid():
+	'''Generates a 19 digit signed f.sid'''
+	r = Randomizer()
+	return int("".join([r.keygen('+-',1), r.keygen(r.digits[1:9], 1), r.keygen(r.digits, 18)]))
+
 def uuid4like():
 	'''Generates a uuid4 like string'''
 	r = Randomizer()
