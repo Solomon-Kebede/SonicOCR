@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sonic OCR</title>
+  <script href="https://code.jquery.com/jquery-3.6.1.min.js" type="text/javascript"></script>
+
+  <!-- <link rel="canonical" href="https://getbootstrap.com/docs/4.0/components/input-group/"> -->
+
+<!-- Bootstrap core CSS -->
+
+<link href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" type="text/javascript"></script>
+
+<!-- <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"> -->
+<link rel="stylesheet" type="text/css" href="./test.css">
+
+
+
+
+
+<!-- Documentation extras -->
+
+<!-- <link href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css" rel="stylesheet"> -->
+
+<!-- <link href="https://getbootstrap.com/docs/4.0/assets/css/docs.min.css" rel="stylesheet"> -->
+
+<style type="text/css">
+  #search-box {
+    /*margin-left: 35%;*/
+  }
+  .bg-light {
+    background-image: linear-gradient(#802f2d, #73342b,#73342b);
+  }
+  .my-sm-0 {
+    /*background-color: #62198a;*/
+    background-color: #3e3c46;
+    color: #ffbf00;
+    border-color: #512d00;"
+  }
+
+  .text-white {
+    background-color: #3c2b29 !important;
+    background-color: #5e1f17 !important;
+  }
+
+  main {
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .fs-4 {
+    font-weight: bold;
+  }
+</style>
+<script src="bootstrap.min.js"></script>
+    <!-- CSS -->
+  <style type="text/css">
+
+    /* Sticky footer styles
+    -------------------------------------------------- */
+
+    html,
+    body {
+          height: 100%;
+          /* The html and body elements cannot have any padding or margin. */
+        }
+
+        /* Wrapper for page content to push down footer */
+        #wrap {
+          min-height: 100%;
+          height: auto !important;
+          height: 100%;
+          /* Negative indent footer by it's height */
+          margin: 0 auto -60px;
+        }
+
+        /* Set the fixed height of the footer here */
+        #push,
+        #footer {
+          height: 60px;
+        }
+        #footer {
+          background-color: #f5f5f5;
+        }
+
+        /* Lastly, apply responsive CSS fixes as necessary */
+        @media (max-width: 767px) {
+          #footer {
+            margin-left: -20px;
+            margin-right: -20px;
+            padding-left: 20px;
+            padding-right: 20px;
+          }
+        }
+
+        #clockdiv{
+           font-family: sans-serif;
+           color: #fff;
+           display: inline-block;
+           font-weight: 100;
+           text-align: center;
+           font-size: 30px;
+         }
+
+        #clockdiv > div{
+           padding: 10px;
+           border-radius: 3px;
+           background: #00BF96;
+           display: inline-block;
+         }
+
+        #clockdiv div > span{
+          padding: 15px;
+          border-radius: 3px;
+          background: #00816A;
+          display: inline-block;
+        }
+
+      .smalltext{
+         padding-top: 5px;
+         font-size: 16px;
+       }
+
+</style>
+</head>
+<body>
+<nav class="navbar navbar-light bg-light">
+  <span id="logo">
+    <a class="navbar-brand" href="#">
+      <img src="./logo.svg" width="150" height="50" class="d-inline-block align-top" alt=""></a>
+  </span>
+  <span id="search-section">
+    <form class="form-inline">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Filter" id="search-box">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Filter</button>
+    </form>
+  </span>
+</nav>
+<main>
+    <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+    <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+      <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg>
+      <span class="fs-4">Sidebar</span>
+    </a>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a href="#" class="nav-link active" aria-current="page">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
+          Home
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
+          Upload
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#grid"/></svg>
+          Recognize
+        </a>
+      </li>
+      <li>
+        <a href="#" class="nav-link text-white">
+          <svg class="bi me-2" width="16" height="16"><use xlink:href="#people-circle"/></svg>
+          Recognized
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong>mdo</strong>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center mt-100">
+      <div class="row">
+          <div class="col-md-12">
+          <h2>Sonic OCR File Upload</h2>
+            <div class="file-drop-area">
+              <span class="choose-file-button">Choose files</span>
+              <span class="file-message">or drag and drop files here</span>
+              <input class="file-input" type="file" multiple>
+            </div>
+          </div>
+                  <!-- Start firt phase -->
+  <div class="container">
+
+    <!-- Start porgress bar -->
+    <div id="instance" class="progress">
+      <div id="progress-bar" class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+        <span class="sr-only">0% Complete</span>
+      </div>
+    </div>
+    <!-- End porgress bar -->
+    </div>
+
+    <div id="push">
+      <button class="btn btn-outline-success my-2 my-sm-1" type="submit">Upload</button>
+    </div>
+  </div>
+<!-- End first phase -->
+  </div>
+</main>
+</body>
+</html>
