@@ -2,7 +2,7 @@
 
 import base64
 from urllib.parse import quote as urlencoder
-from engine.randomizer import Randomizer
+from utils.randomizer import Randomizer
 
 def headers(header_type='base'):
 	"""Returns different headers for various endpoints"""
