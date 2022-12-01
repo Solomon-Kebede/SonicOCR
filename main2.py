@@ -9,6 +9,7 @@ from engine.google import headers as header
 from engine.google import uuid4like
 from engine.google import data4batchexecute
 from engine.google import url4batchexecute
+from utils.color import Color
 
 import asyncio
 import aiohttp
@@ -20,7 +21,7 @@ import hashlib
 import time
 
 logging.basicConfig(
-    level=logging.ERROR,
+    level=logging.DEBUG,
     format=' %(asctime)s -%(levelname)s - %(message)s'
     )
 '''# To take input from the terminal.
@@ -73,13 +74,13 @@ async def post(session, url, _headers, _data=None, request_type = None):
             if response.ok:
                 return response.headers
             else:
-                logging.error(f'Status Code_1: {response.status}')
+                logging.error(f'{Color.Red}Status Code_1: {response.status}')
                 return None
         elif request_type == "text-only":
             if response.ok:
                 return await response.text()
             else:
-                logging.error(f'Status Code_2: {response.status}')
+                logging.error(f'{Color.Red}Status Code_2: {response.status}')
                 return None
 
 def parse_results(response):
@@ -97,7 +98,7 @@ def parse_results(response):
         if x[0] == ',' and 'Acna4G' in x:
             ocr_result_index = all_lists.index(x) - 1
             ocr_result = all_lists[ocr_result_index]
-            logging.info(f"[{ocr_result_index}] => {ocr_result}")
+            logging.info(f"{Color.Yellow}[{ocr_result_index}] => {ocr_result}")
     ocr_results = json.loads(f"[{ocr_result}]")
     return ocr_results
     
@@ -118,7 +119,7 @@ async def main():
         endpoint_3_awaitables = []
         for r in results_endpoint1:
             upload_location = r.get('X-Goog-Upload-URL')
-            logging.info(f"[1.0] {upload_location}\n")
+            logging.info(f"{Color.Yellow}[1.0] {upload_location}\n")
             # Read Image
             image_data = read_image(next(filepath))
             # Upload Image
@@ -140,7 +141,7 @@ async def main():
             #print(f"raw-> {r}")
             res_2_json = json.loads(r.split('\n')[1])
             # print('=' * 30)
-            logging.info(f"[2.0] {res_2_json}\n")
+            logging.info(f"{Color.Yellow}[2.0] {res_2_json}\n")
             # Get Google Lens Location
             gl_url = f'{base_url}{res_2_json["url"]}'
 
@@ -148,7 +149,7 @@ async def main():
             gp_url_encoded = res_2_json["payload"]
             gp_url_decoded = base64.b64decode(gp_url_encoded)
             gp_url = f"https://{gp_url_decoded.split(b'https://')[1].split(b'(')[0].decode('utf-8')}"
-            logging.info(f"[3.0] {gp_url}\n")
+            logging.info(f"{Color.Yellow}[3.0] {gp_url}\n")
 
             # Get OCR data
             results_url = url4batchexecute()
@@ -164,14 +165,14 @@ async def main():
         for r in results_endpoint3:
             # Parsing for the result
             ocr_results = parse_results(r)
-            logging.info(f"[4.0] {ocr_results}\n")
+            logging.info(f"{Color.Yellow}[4.0] {ocr_results}\n")
 
-            print("Final Result:")
+            print(f"{Color.Green}Final Result:")
             for ocr_item in ocr_results:
-                print(f"{ocr_item}")
+                print(f"{Color.White}{ocr_item}")
             print()
 
 if __name__ == '__main__':
     start_time = time.time()
     asyncio.run(main())
-    print(f'{time.time() - start_time}s')
+    print(f'{Color.Magenta}{time.time() - start_time}s')
