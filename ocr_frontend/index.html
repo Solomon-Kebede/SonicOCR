@@ -204,6 +204,33 @@
          padding-top: 5px;
          font-size: 16px;
        }
+       
+      /*-- New properties --*/
+      .w-100 {
+        width: 100%!important;
+        border-radius: 50px;
+        border-color: blue;
+        max-height: 100px;
+        max-width: 450px;
+        margin-left: 50px;
+      }
+      .bg-white {
+        background-color: #fff!important;
+        border-radius: 50px;
+        margin-left: -71px;
+        border-color: transparent !important;
+      }
+      .col-md-12 {
+        -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        margin-left: -50px;
+      }
+      .progress {
+        margin-left: -65px;
+        margin-right: 92px;
+      }
 
 </style>
 </head>
@@ -231,7 +258,7 @@
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
-        <a href="#" class="nav-link active" aria-current="page">
+        <a href="https://natiman58.wixsite.com/my-site" target="_blank" rel="noopener noreferrer" class="nav-link active" aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#home"/></svg>
           Home
         </a>
@@ -243,7 +270,7 @@
         </a>
       </li>
       <li id="about">
-        <a href="#" class="nav-link text-active" aria-current="page">
+        <a href="https://natiman58.wixsite.com/my-site/about-1" target="_blank" rel="noopener noreferrer" class="nav-link text-active" aria-current="page">
           <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"/></svg>
           About
         </a>
@@ -304,13 +331,22 @@
       <div class="row">
           <div class="col-md-12">
           <h2>Sonic OCR File Upload</h2>
-            <div class="file-drop-area">
+            <!--<div class="file-drop-area">
               <span class="choose-file-button">Choose files</span>
               <span class="file-message">or drag and drop files here</span>
               <input class="file-input" type="file" multiple>
+            </div>-->
+            
+            <!-- New option for the file upload area-->
+            <div class="bg-white border rounded-5">
+              <section class="w-100 p-4 d-flex justify-content-center pb-4">
+                <div style="width: 22rem;">
+                  <input type="file" class="form-control" id="customFile" autocompleted="">
+                </div>
+              </section>
             </div>
           </div>
-                  <!-- Start firt phase -->
+            <!-- Start firt phase -->
   <div class="container">
 
     <!-- Start porgress bar -->
