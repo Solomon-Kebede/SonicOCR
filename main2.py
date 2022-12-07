@@ -21,10 +21,10 @@ import hashlib
 import time
 
 logging.basicConfig(
-    level=logging.DEBUG,
+    level=logging.ERROR,
     format=' %(asctime)s -%(levelname)s - %(message)s'
     )
-'''# To take input from the terminal.
+# To take input from the terminal.
 image_paths = []
 user_inputs = [str(x) for x in input("Please enter image path(s): ").split(", ")]
 
@@ -34,9 +34,9 @@ for user_input in user_inputs:
             print("Image(s) being processed...")
         image_path = image_paths.append(user_input)
     else:
-        print("Path not found, please enter another path")'''    
+        print("Path not found, please enter another path")   
 
-image_paths = [
+"""image_paths = [
 "./test_images/everything-has-beauty-confucius-quote.jpg",
 "./test_images/maya-angelou-famous-quote.webp",
 "./test_images/download2.jpg",
@@ -50,7 +50,7 @@ image_paths = [
 './images_test_2/Variations-in-handwriting-style-random-sample-of-handwriting-taken-from-IRONOFF-database.png',
 './images_test_2/random-text-to-wrap-around-picture.jpg',
 './images_test_2/preview-image-onlinefiletools.png',
-]
+]"""
 
 base_url = "https://lens.google.com"
 endpoint_1 = f"{base_url}/_/upload/"
@@ -175,4 +175,4 @@ async def main():
 if __name__ == '__main__':
     start_time = time.time()
     asyncio.run(main())
-    print(f'{Color.Magenta}{time.time() - start_time}s')
+    print(f'{Color.Magenta}{time.time() - start_time}s {Color.White}')
