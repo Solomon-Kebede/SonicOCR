@@ -1,10 +1,11 @@
 # ScanMyPagesOCR
+	Is a tool to help you scan your digital files and extarct the right information that you need.
 
 Switch to branch `dev`
 
-Run `python3 glens.py`
+Run `python3 main2.py`
 
-You can change the path to the images in `dev/glens.py`
+You can change the path to the images in `dev/main2.py`
 
 Works on python version >= 3.6
 

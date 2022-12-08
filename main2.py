@@ -1,6 +1,5 @@
 import json
 from sys import argv
-import requests
 import base64
 import logging
 import pprint
@@ -50,6 +49,7 @@ for user_input in user_inputs:
 './images_test_2/Variations-in-handwriting-style-random-sample-of-handwriting-taken-from-IRONOFF-database.png',
 './images_test_2/random-text-to-wrap-around-picture.jpg',
 './images_test_2/preview-image-onlinefiletools.png',
+'./images_test_2/sonic.jpg'
 ]"""
 
 base_url = "https://lens.google.com"
