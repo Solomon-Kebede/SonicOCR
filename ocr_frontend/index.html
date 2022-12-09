@@ -126,7 +126,6 @@
         width: 70px;
     }
   </style>
-  <script src="./old/bootstrap.min.js"></script>
     <!-- CSS -->
   <style type="text/css">
 
@@ -222,6 +221,16 @@
         margin-right: 92px;
       }
   </style>
+  <style type="text/css">
+    #selection-info {
+      text-align: center;
+      padding: 10px;
+      border: solid white 1px;
+      margin: 5px;
+      /* padding: 100px; */
+      /* display: flex; */
+    }
+  </style>
   <script type="text/javascript">
     $(document).ready(function() {
       $("#but_upload").click(function() {
@@ -258,6 +267,58 @@
         
       });
     });
+  </script>
+  <style type="text/css">
+      /*#selection-info {
+          display: flex;
+          width: 70%;
+          margin: 10%;
+      }*/
+      .table-data-space {
+          padding-top: 20px;
+      }
+      .thumbnail {
+          width: 50px;
+          height: 50px;
+          padding: 10px;
+          border-radius: 30%;
+      }
+      .table td, .table th {
+          /*padding: .75rem;*/
+          padding: 0rem;
+          vertical-align: top;
+          border-top: 1px solid #dee2e6;
+      }
+      .dividers {
+          display: flex;
+      }
+  </style>
+  <script type="text/javascript">
+      let thumbnailPath = "/home/kali/Downloads/bg-01.jpg";
+      let filename = ".listing";
+      let size = "887 B";
+      let type = "LISTING file";
+      let href = "//s3.amazonaws.com/ftp.ilinknet.com/Mits/.listing";
+      // let headerElements = "<tr><th>Name</th><th>Size</th><th>Progress</th></tr>";
+      let thumbnailImgHtml = `<img src="${thumbnailPath}" class="thumbnail">`
+      let rows = 3;
+      let tableTop = `<table class="hide-while-loading table table-striped"><thead><tr><th>Name</th><th>Size</th>
+      <th>Progress</th></tr></thead><thead></thead><tbody id="tbody-content">`
+      let tableBottom = '</tbody></table>'
+      $(document).ready(function buildTable() {
+          let tableData = '';
+          tableData = tableData + tableTop;
+          // Build table rows
+          for (i = 0; i < rows; i++)
+          {
+              let tableRow = `<tr><td><div class="dividers divider-main"><div class="dividers thumbnail-position">${thumbnailImgHtml}</div>
+              <div class="table-data-space"><a href="${href}">${filename}</a></div></div></td><td>
+              <div class="table-data-space">${size}</div></td><td><div class="table-data-space">${type}</div></td></tr>`;
+              tableData = tableData + tableRow;
+          }
+          tableData = tableData + tableBottom;
+          $("#selection-info").append(tableData);
+      });
   </script>
 </head>
 <body>
@@ -348,6 +409,11 @@
                 <span class="choose-file-button">Choose files</span>
                 <span class="file-message">or drag and drop files here</span>
                 <input id="file-input-area" class="file-input" type="file" multiple>
+              </div>
+              <div id="file-selections">
+                <div id="selection-info">
+                  <div id="file-info">No files selected</div>
+                </div>
               </div>
               <div id="push">
                 <button class="btn btn-outline-success my-2 my-sm-1" type="submit" id="but_upload">Upload</button>
