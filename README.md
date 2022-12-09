@@ -1,5 +1,5 @@
 # ScanMyPagesOCR
-	Is a tool to help you scan your digital files and extarct the right information that you need.
+	Is a tool to help you scan your digital files and extract the right information that you need.
 
 Switch to branch `dev`
 
@@ -17,8 +17,8 @@ Tested on python version 3.6 and 3.10
 	
 		* run it on any terminal or IDE
  		
-		* Then it asks for an input of image path for single or multiple
-		for multiple image paths make sure one path is separated form the
+		* Then it asks for an input of image path for single or multiple,
+		for multiple image paths make sure one path is separated from the
 		other with a comma(./image_path_1, ./image_path_2, ./image_path_3)
 	
 		* It will process the image(s) and pops out the result good luck!!!
