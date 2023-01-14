@@ -27,6 +27,7 @@ Tested on python version 3.6 and 3.10
 Project still in development and testing
 
 Colaborators:
+
 Nati M Dessie - [Github](https://github.com/Natiman58) / [Twitter](https://twitter.com/NManyazewal) 
 
 soloAlx - [Github](https://github.com/soloALX) / [Twitter](https://twitter.com/solomonaau188)
