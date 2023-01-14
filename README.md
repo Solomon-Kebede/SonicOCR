@@ -28,5 +28,7 @@ Project still in development and testing
 
 Colaborators:
 Nati M Dessie - [Github](https://github.com/Natiman58) / [Twitter](https://twitter.com/NManyazewal) 
+
 soloAlx - [Github](https://github.com/soloALX) / [Twitter](https://twitter.com/solomonaau188)
+
 Victoria Oguti - [Github](https://github.com/Victoria-20) / [Twitter](https://twitter.com/victoriaocon5)
