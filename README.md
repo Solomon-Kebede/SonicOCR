@@ -1,4 +1,4 @@
-# ScanMyPagesOCR
+# SonicOCR
 	Is a tool to help you scan your digital files and extract the right information that you need.
 
 Switch to branch `dev`
@@ -30,6 +30,6 @@ Colaborators:
 
 Nati M Dessie - [Github](https://github.com/Natiman58) / [Twitter](https://twitter.com/NManyazewal) 
 
-soloAlx - [Github](https://github.com/soloALX) / [Twitter](https://twitter.com/solomonaau188)
+Solomon Kebede - [Github](https://github.com/Solomon-Kebede) / [Twitter](https://twitter.com/solomonaau188)
 
 Victoria Oguti - [Github](https://github.com/Victoria-20) / [Twitter](https://twitter.com/victoriaocon5)
