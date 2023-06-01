@@ -84,23 +84,17 @@ async def post(session, url, _headers, _data=None, request_type = None):
                 return None
 
 def parse_results(response):
-    c = 0
-    all_lists = []
     result_1 = response.split('\n')[3]
     result_2 = json.loads(result_1)[0][2]
-    for i in result_2.split("["):
-        for j in i.split("]"):
-            if j != '' and j not in all_lists:
-                potential_list = (f"{j}")
-                all_lists.append(potential_list)
-                c += 1
-    for x in all_lists:
-        if x[0] == ',' and 'Acna4G' in x:
-            ocr_result_index = all_lists.index(x) - 1
-            ocr_result = all_lists[ocr_result_index]
-            logging.info(f"{Color.Yellow}[{ocr_result_index}] => {ocr_result}")
-    ocr_results = json.loads(f"[{ocr_result}]")
-    return ocr_results
+    result_3 = json.loads(result_2)
+    result_4 = []
+    for i in result_3:
+        if i not in result_4:
+            result_4.append(i)
+    result_5 = result_4[3]
+    lang = result_5[3]
+    ocr_result = result_5[4][0][0]
+    return ocr_result
     
 
 async def main():
